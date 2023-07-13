@@ -21711,3 +21711,125 @@ Processing by Api::PokemonsController#show as JSON
 Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 2637)
 
 
+Started GET "/" for ::1 at 2023-07-13 16:46:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /root/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /root/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.0ms | Allocations: 526)
+Completed 200 OK in 1050ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 948943)
+
+
+Started GET "/pokemons/5" for ::1 at 2023-07-13 16:47:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/pokemons/5"):
+  
+Started GET "/api/pokemons/5" for ::1 at 2023-07-13 16:49:15 -0400
+Processing by Api::PokemonsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mPokemon Load (1.9ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:19:in `show'
+  Rendering api/pokemons/show.json.jbuilder
+  [1m[36mMove Load (1.9ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "poke_moves" ON "moves"."id" = "poke_moves"."move_id" WHERE "poke_moves"."pokemon_id" = $1[0m  [["pokemon_id", 5]]
+  ↳ app/views/api/pokemons/show.json.jbuilder:4:in `map'
+  Rendered api/pokemons/show.json.jbuilder (Duration: 43.4ms | Allocations: 15645)
+Completed 200 OK in 96ms (Views: 38.9ms | ActiveRecord: 21.8ms | Allocations: 29205)
+
+
+Started PUT "/api/pokemons/5?name=Charme" for ::1 at 2023-07-13 16:49:56 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"name"=>"Charme", "id"=>"5"}
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+  Rendering api/pokemons/edit.json.jbuilder
+  [1m[36mMove Load (0.8ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "poke_moves" ON "moves"."id" = "poke_moves"."move_id" WHERE "poke_moves"."pokemon_id" = $1[0m  [["pokemon_id", 5]]
+  ↳ app/views/api/pokemons/edit.json.jbuilder:2:in `map'
+  Rendered api/pokemons/edit.json.jbuilder (Duration: 4.2ms | Allocations: 1172)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 1.1ms | Allocations: 1973)
+
+
+Started PUT "/api/pokemons/5?pokemon[name]=Charme" for ::1 at 2023-07-13 16:50:23 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"pokemon"=>{"name"=>"Charme"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+  Rendering api/pokemons/edit.json.jbuilder
+  [1m[36mMove Load (0.5ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "poke_moves" ON "moves"."id" = "poke_moves"."move_id" WHERE "poke_moves"."pokemon_id" = $1[0m  [["pokemon_id", 5]]
+  ↳ app/views/api/pokemons/edit.json.jbuilder:2:in `map'
+  Rendered api/pokemons/edit.json.jbuilder (Duration: 2.8ms | Allocations: 1032)
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 1.0ms | Allocations: 1710)
+
+
+Started PUT "/api/pokemons/5?pokemon[name]=Charme" for ::1 at 2023-07-13 16:50:37 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"pokemon"=>{"name"=>"Charme"}, "id"=>"5"}
+  [1m[36mPokemon Load (1.8ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+  Rendering api/pokemons/edit.json.jbuilder
+  [1m[36mMove Load (1.6ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "poke_moves" ON "moves"."id" = "poke_moves"."move_id" WHERE "poke_moves"."pokemon_id" = $1[0m  [["pokemon_id", 5]]
+  ↳ app/views/api/pokemons/edit.json.jbuilder:2:in `map'
+  Rendered api/pokemons/edit.json.jbuilder (Duration: 10.0ms | Allocations: 1030)
+Completed 200 OK in 16ms (Views: 9.5ms | ActiveRecord: 3.4ms | Allocations: 1692)
+
+
+Started PUT "/api/pokemons/5?pokemon[name]=Charme" for ::1 at 2023-07-13 16:52:26 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"pokemon"=>{"name"=>"Charme"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.9ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 3.7ms | Allocations: 6316)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/api/pokemons_controller.rb:28:in `update'
+
+Started PUT "/api/pokemons/5?pokemon[name]=Charme" for ::1 at 2023-07-13 16:52:48 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"pokemon"=>{"name"=>"Charme"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.9ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 6.0ms | Allocations: 8916)
+
+
+
+NameError - undefined local variable or method `number' for #<Api::PokemonsController:0x00000000007aa8>
+        params.require(:pokemon).permit(number,name,attack,defense,poke_type,image_url)
+                                        ^^^^^^:
+  app/controllers/api/pokemons_controller.rb:41:in `pokemon_params'
+  app/controllers/api/pokemons_controller.rb:28:in `update'
+
+Started PUT "/api/pokemons/5?pokemon[name]=Charme" for ::1 at 2023-07-13 16:53:57 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"pokemon"=>{"name"=>"Charme"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.9ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/pokemons_controller.rb:28:in `update'
+  [1m[36mPokemon Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "pokemons" WHERE "pokemons"."name" = $1 AND "pokemons"."id" != $2 LIMIT $3[0m  [["name", "Charmeleon"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:28:in `update'
+  [1m[36mPokemon Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "pokemons" WHERE "pokemons"."number" = $1 AND "pokemons"."id" != $2 LIMIT $3[0m  [["number", 5], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/pokemons_controller.rb:28:in `update'
+  Rendering api/pokemons/edit.json.jbuilder
+  [1m[36mMove Load (0.9ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "poke_moves" ON "moves"."id" = "poke_moves"."move_id" WHERE "poke_moves"."pokemon_id" = $1[0m  [["pokemon_id", 5]]
+  ↳ app/views/api/pokemons/edit.json.jbuilder:2:in `map'
+  Rendered api/pokemons/edit.json.jbuilder (Duration: 23.7ms | Allocations: 9437)
+Completed 200 OK in 68ms (Views: 18.2ms | ActiveRecord: 15.4ms | Allocations: 19644)
+
+
+Started PUT "/api/pokemons/5?pokemon[name]=Charme" for ::1 at 2023-07-13 16:56:44 -0400
+Processing by Api::PokemonsController#update as JSON
+  Parameters: {"pokemon"=>{"name"=>"Charme"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemons_controller.rb:27:in `update'
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 4.5ms | Allocations: 8911)
+
+
+
+NameError - undefined local variable or method `number' for #<Api::PokemonsController:0x0000000000a2d0>
+        params.require(:pokemon).permit(number,name,attack,defense,poke_type,image_url)
+                                        ^^^^^^:
+  app/controllers/api/pokemons_controller.rb:47:in `pokemon_params'
+  app/controllers/api/pokemons_controller.rb:29:in `update'
+

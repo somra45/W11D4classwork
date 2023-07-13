@@ -25,12 +25,18 @@ class Api::PokemonsController < ApplicationController
 
     def update
         @pokemon= Pokemon.find(params[:id])
-        if @pokemon
-            render "api/pokemons/edit"
-        else
-            render json: @pokemon.errors.full_messages, status: 422
-        end
 
+        if @pokemon.update(pokemon_params)
+            render "api/pokemons/show"
+        else
+            render "api/pokemons/edit"
+        end
+    end
+
+    def edit
+        @pokemon= Pokemon.find(params[:id])
+
+        render "api/pokemons/edit"
     end
 
     def types
